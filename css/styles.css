@@ -1,0 +1,501 @@
+@charset "UTF-8";
+@import "base.css";
+@import "fonts.css";
+
+/*===============================================================*/
+/*  Copyright (C) 2009 Branding Technology All Rights Reserved.  */
+/*===============================================================*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+textarea,
+select,
+p,
+blockquote,
+th,
+td,
+pre,
+address,
+li,
+dt,
+dd {
+    font-size: 160%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.6em;
+}
+
+img {
+    vertical-align: bottom;
+    flex-shrink: 0;
+    max-width: 100%;
+}
+
+a {
+    color: #e3002a;
+    transition: all 0.2s;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+}
+
+p {
+    margin-bottom: 1.85em;
+    line-height: 2em;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+dd,
+td,
+th,
+li {
+    line-height: 1.6em;
+}
+
+button {
+    cursor: pointer;
+    border: solid 1px #333;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.section {
+    padding: 0 0 0 0;
+    margin: 0 0 100px 0;
+}
+
+.section .section {
+    padding: 0 0 0;
+    margin: 0 0 30px 0;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.image-l {
+    float: left;
+    margin: 0 60px 20px 0;
+}
+
+.image-r {
+    float: right;
+    margin: 0 0 20px 60px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-center-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/*=============================G L O B A L=============================*/
+
+html {
+    background: #fff;
+}
+
+body {
+    color: #333333;
+    -webkit-text-size-adjust: none;
+    min-width: 320px;
+    font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    outline: none;
+}
+
+#wrapper {
+    min-width: 1220px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.inner {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#menu-toggle {
+    width: 46px;
+    height: 45px;
+    position: fixed;
+    margin: 0 0;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    background: #333;
+    z-index: 1300;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+
+#menu-toggle span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 80%;
+    background: #ffffff;
+    border-radius: 0;
+    opacity: 1;
+    left: 10%;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+#menu-toggle span:nth-child(1) {
+    top: 8px;
+}
+
+#menu-toggle span:nth-child(2),
+#menu-toggle span:nth-child(3) {
+    top: 20px;
+}
+
+#menu-toggle span:nth-child(4) {
+    top: 32px;
+}
+
+#menu-toggle.open span:nth-child(1) {
+    top: 20px;
+    width: 0%;
+    left: 50%;
+}
+
+#menu-toggle.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+#menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+#menu-toggle.open span:nth-child(4) {
+    top: 20px;
+    width: 0%;
+    left: 50%;
+}
+
+.to-top {
+    position: fixed;
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    background: #55c2d9;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: solid 1px #42bbd5;
+    transition: all 0.2s;
+    transform-origin: 50% 100%;
+    transform: scale(0.5);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.to-top.show {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.to-top:before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-top: solid 3px #fff;
+    border-right: solid 3px #fff;
+    transform: rotateZ(-45deg);
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.to-top:after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-top: solid 3px #fff;
+    border-right: solid 3px #fff;
+    transform: rotateZ(-45deg);
+    position: absolute;
+    left: 20px;
+    top: 30px;
+}
+
+/*============================= H_E_A_D_E_R =============================*/
+
+#header {
+    background: #fff;
+}
+.top__nav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.logo__nav {
+    display: flex;
+    width: 100%;
+}
+.logo__nav h1 {
+    margin-left: 28px;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+}
+.nav__col1{
+    width: 540px;
+}
+.link__nav>span {
+    color: #fff;
+    font-size: 18px;
+    background-color: #27346a;
+    height: auto;
+    max-width: 220px;
+    padding: 27px 55px;
+    font-weight: 700;
+    box-shadow: 2px 2px 0px 1px black;
+}
+.link__nav>span:not(:last-child) {
+    margin-right: 11px;
+}
+.div.nav__col2 {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+/*============================= F_O_O_T_E_R =============================*/
+
+#footer {
+    display: block;
+    clear: both;
+    text-align: left;
+    margin-top: auto;
+}
+
+#footer address {
+    padding: 14px 0;
+    text-align: center;
+    color: #92d4e1;
+    background: #004870;
+    font-size: 11px;
+    letter-spacing: 0.005em;
+}
+
+/*============================= C_O_N_T_E_N_T =============================*/
+.container-link>li {
+    width: calc((100% - 294) / 7);
+    margin-top: 30px;
+    margin-bottom: 30px;  
+}
+.container-link>li:not(:last-child){
+    border-right: 1px solid;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-link>li>a {
+    text-decoration: none;
+    font-size: 14px;
+    color: black!important;
+}
+ul.container-link {
+    display: flex;
+    margin-top: 15px;
+}
+.container-link>li:not(:last-child) {
+    margin-right: 42px;
+    padding-right: 42px;
+}
+section.link-web {
+    border-bottom: 1px solid ;
+}
+
+.blog-col {
+    display: flex;
+    padding-top: 84px;
+    padding-bottom: 84px;
+}
+.col-blog-left {
+    width: 540px;
+}
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+ul.list__blog>li>a {
+    display: flex;
+    text-decoration: none;
+    font-size: 14px;
+}
+ul.list__blog>li>a>span {
+ line-height: 2em;
+ padding: 2px 12px;
+ color: white;
+ background-color: #81c784;
+ margin-top: 16px;
+ margin-bottom: 16px;
+ font-size: 12px;
+ width: 90px;
+
+}
+.card-title h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+ul.list__blog>li>a>p {
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-size: 12px;
+    margin-left: 28px;
+}
+.btn__link__blog {
+    font-size: 12px;
+    color: white;
+    background-color: #1565c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.image-bottom  img:not(:last-child){
+    margin-right: 20px;
+}
+.image-top {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.blog-image {
+    margin-left: 40px;
+}
+.image-top p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:  0;
+    left: 0;
+    color: white;
+    z-index: 9999;
+    letter-spacing: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+.image-bottom {
+    position: relative;
+}
+.image-bottom p {
+    position: absolute;
+    color: white;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+.blog-bottom {
+    display: flex;
+}
+ul.list__blog li {
+    border-top: 1px solid;
+}
+ul.list__blog li:is(:last-child) {
+    border-bottom: 1px solid;
+}
+
+
+/*============================= HACK CSS =============================*/
+
+/* IE */
+@media (-ms-high-contrast: none),
+(-ms-high-contrast: active) {}
+
+
+/* EGDE */
+@supports (-ms-ime-align:auto) {}
+
+
+/* FIREFOX */
+@-moz-document url-prefix() {}
+
+
+/* Safari 10.1+ (which is the latest version of Safari at this time) */
+@media not all and (min-resolution:.001dpcm) {
+    @media {}
+}
+
+/*======================= WORDPRESS ADMIN LOGED IN ========================*/
+
+.customize-support #header {
+    margin-top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .customize-support #header {
+        margin-top: 46px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .customize-support #header {
+        margin-top: 0px !important;
+    }
+}
